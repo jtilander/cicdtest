@@ -1,8 +1,11 @@
-.PHONY: all test clean deploy
+.PHONY: all test clean deploy build
 
 TARGET?=dev
 
-all: test
+all: build
+
+build:
+	@echo "Building"
 
 test:
 	@echo "Simple test passing for shell ${SHELL}"
