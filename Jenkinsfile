@@ -1,26 +1,29 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('Build') {
-            node('swarm') {
-                steps {
-                sh 'make clean all'
-                }
+            agent { 
+                label 'linux'
+            }
+            steps {
+            sh 'make clean all'
             }
         }
         stage('Test') {
-            node('swarm') {
-                steps {
-                sh 'make test'
-                }
+            agent { 
+                label 'linux'
+            }
+            steps {
+            sh 'make test'
             }
         }
         stage('Deploy') {
-            node('swarm') {
-                steps {
-                sh 'make deploy'
-                }
+            agent { 
+                label 'linux'
+            }
+            steps {
+            sh 'make deploy'
             }
         }
     }
