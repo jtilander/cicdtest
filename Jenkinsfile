@@ -3,21 +3,21 @@ pipeline {
 
     stages {
         stage('Build') {
-            node('linux&&swarm') {
+            node('swarm') {
                 steps {
                 sh 'make clean all'
                 }
             }
         }
         stage('Test') {
-            node('linux&&swarm') {
+            node('swarm') {
                 steps {
                 sh 'make test'
                 }
             }
         }
         stage('Deploy') {
-            node('linux&&swarm') {
+            node('swarm') {
                 steps {
                 sh 'make deploy'
                 }
